@@ -1,0 +1,25 @@
+## plot1.R
+
+# Convert 'Global_active_power' to numeric (in case it's read as character)
+epc$Global_active_power <- as.numeric(epc$Global_active_power)
+
+# Convert 'Date' to Date class using the correct format
+epc$Date <- as.Date(epc$Date, format = "%d/%m/%Y")
+
+# Filter for dates 2007-02-01 and 2007-02-02
+epc_filt <- epc[epc$Date %in% as.Date(c("2007-02-01", "2007-02-02")), ]
+
+# Open PNG device to save the plot
+png(filename = "plot1.png", width = 480, height = 480)
+
+# Create histogram of Global Active Power
+hist(epc_filt$Global_active_power,
+     col = "red",
+     main = "Global Active Power",
+     xlab = "Global Active Power (kilowatts)",
+     ylab = "Frequency")
+
+# Close the device
+dev.off()
+
+
