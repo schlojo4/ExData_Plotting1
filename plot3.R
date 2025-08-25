@@ -1,5 +1,7 @@
 ##plot3.R
 
+## NOTE!! epc_filt generated in plot1
+
 # Open PNG device to save the plot
 png(filename = "plot3.png", width = 480, height = 480)
 
